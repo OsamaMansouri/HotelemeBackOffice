@@ -102,10 +102,7 @@ namespace HotelManagementSystem
 
         }
 
-        private void guna2Button2_Click_1(object sender, EventArgs e)
-        {
-            loadform(new Requests());
-        }
+       
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {

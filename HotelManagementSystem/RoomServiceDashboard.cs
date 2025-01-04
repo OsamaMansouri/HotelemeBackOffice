@@ -58,7 +58,7 @@ namespace HotelManagementSystem
 
         private void guna2Button2_Click_1(object sender, EventArgs e)
         {
-            loadform(new Requests());
+            loadform(new Requests("Room Service Staff"));
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

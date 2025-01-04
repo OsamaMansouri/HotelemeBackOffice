@@ -8,18 +8,38 @@ namespace HotelManagementSystem
 {
     public partial class Requests : Form
     {
-        public Requests()
+        private string currentUserRole;
+
+        public Requests(string role)
         {
             InitializeComponent();
+            currentUserRole = role;
+
         }
 
         private void Requests_Load(object sender, EventArgs e)
         {
+            CheckPermissions();
+
             LoadRequests();
             LoadOccupiedRooms();
             LoadStaff();
             requestsDataGridView.ClearSelection();
 
+        }
+
+        private void CheckPermissions()
+        {
+            if (currentUserRole.Equals("Room Service Staff", StringComparison.OrdinalIgnoreCase))
+            {
+                addBtn.Enabled = false;
+                deleteBtn.Enabled = false;
+            }
+            else
+            {
+                addBtn.Enabled = true;
+                deleteBtn.Enabled = true;
+            }
         }
 
 
@@ -279,7 +299,6 @@ namespace HotelManagementSystem
 
             bool hasSelection = requestsDataGridView.SelectedRows.Count > 0;
             updateBtn.Enabled = hasSelection;
-            deleteBtn.Enabled = hasSelection;
 
 
             if (hasSelection)
