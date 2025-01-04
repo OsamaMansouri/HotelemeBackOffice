@@ -36,6 +36,7 @@ namespace HotelManagementSystem
             }
             else
             {
+                addBtn.Enabled = true;
                 deleteBtn.Enabled = true;
             }
         }
